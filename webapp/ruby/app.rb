@@ -5,7 +5,8 @@ require 'mysql2'
 
 class Isucon2App < Sinatra::Base
   $stdout.sync = true
-  set :slim, :pretty => true, :layout => true
+  # set :slim, :pretty => true, :layout => true
+  set :slim, :pretty => false, :layout => true
 
   helpers do
     def connection
