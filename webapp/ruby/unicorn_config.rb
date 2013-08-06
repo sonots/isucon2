@@ -1,3 +1,3 @@
-worker_processes 50
+worker_processes 30
 preload_app true
 listen "0.0.0.0:5000"
