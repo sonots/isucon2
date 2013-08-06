@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS isucon2.ticket (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `artist_id` INT UNSIGNED NOT NULL,
+  INDEX `INDEX_ARTIST_ID` (`artist_id`),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
@@ -24,6 +25,7 @@ CREATE TABLE IF NOT EXISTS isucon2.variation (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `ticket_id` INT UNSIGNED NOT NULL,
+  INDEX `INDEX_TICKET_ID` (`ticket_id`),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
@@ -33,6 +35,7 @@ CREATE TABLE IF NOT EXISTS isucon2.stock (
   `seat_id` VARCHAR(255) NOT NULL,
   `order_id` INT UNSIGNED DEFAULT NULL,
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX `INDEX_ORDER_ID` (`order_id`),
   PRIMARY KEY (`id`),
   UNIQUE KEY `variation_seat` (`variation_id`,`seat_id`)
 ) ENGINE=InnoDB;
